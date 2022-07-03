@@ -1,7 +1,7 @@
-<?php include "../shared/header.php"; 
- include "../shared/nav.php"; 
- include "../genral/config.php";
+<?php 
+include "../genral/config.php";
 include "../genral/functions.php";
+
 
 if(isset($_GET['pId'])){
     $showBtn = true;
@@ -9,7 +9,7 @@ if(isset($_GET['pId'])){
     $select = "SELECT * FROM product where id = $id";
     $sr = mysqli_query($connectSQL , $select);
     $row = mysqli_fetch_assoc($sr);
-    $nameR = $row['title'];
+    $namePro = $row['title'];
     $descriptionsyR = $row['descriptions'];
     $imageR = $row['image'];
     $imageR2 = $row['image2'];
@@ -25,10 +25,14 @@ if(isset($_GET['pId'])){
             $i = mysqli_query($connectSQL ,$insert);
             $massege =  testMessage($i , "insert order");
             header("location: /eCommerce/product_profile/profile.php?pId=$productId");
+            exit;
         }else{
             header("location: /eCommerce/user/login.php");
+            exit;
         }
     }
+    include "../shared/header.php"; 
+ include "../shared/nav.php"; 
 ?>
 <div class="Product_profile">
     <div class="container py-3 border mb-4">
@@ -52,7 +56,7 @@ if(isset($_GET['pId'])){
       </div>
             </div>
                 <div class="col-md-6 p-md-5">
-                    <h3 class='mt-5 border-bottom  pb-1'><?php echo $nameR ;?></h3>
+                    <h3 class='mt-5 border-bottom  pb-1'><?php echo $namePro ;?></h3>
                     <h4 class='my-3 border-bottom  pb-1'><?php echo "$" . $priceR; ?></h4>
                     <p class='my-5 border-bottom pb-1'><?php echo $descriptionsyR ;?></p>
                     <form method="POST">

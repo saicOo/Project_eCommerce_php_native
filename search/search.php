@@ -1,10 +1,6 @@
-<?php include "../shared/header.php" ;
- include "../shared/nav.php" ;
- include "../genral/config.php";
- include "../genral/functions.php";
-
-
-
+<?php 
+include "../genral/config.php";
+include "../genral/functions.php";
 
 if(isset($_GET['search'])){
     $search_term = mysqli_real_escape_string($connectSQL, $_GET['search_term'] );
@@ -15,7 +11,8 @@ if(isset($_GET['search'])){
   }else{
     $numRowSearch = 0;
   }
-
+  include "../shared/header.php" ;
+  include "../shared/nav.php" ;
  ?>
 <section id="home">
     <div class="product_overview">

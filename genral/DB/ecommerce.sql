@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 22, 2021 at 06:27 AM
+-- Generation Time: Jul 03, 2022 at 03:39 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.24
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `admins` (
   `id` int(11) NOT NULL,
   `name` varchar(25) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `password` varchar(12) NOT NULL,
   `roles` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -38,9 +39,9 @@ CREATE TABLE `admins` (
 -- Dumping data for table `admins`
 --
 
-INSERT INTO `admins` (`id`, `name`, `password`, `roles`) VALUES
-(1, 'admin', '1234', 1),
-(2, 'saico', '1234', 0);
+INSERT INTO `admins` (`id`, `name`, `email`, `password`, `roles`) VALUES
+(1, 'admin', 'admin@gmail.com', '1234', 0),
+(2, 'saico', 'saico@gmail.com', '1234', 1);
 
 -- --------------------------------------------------------
 
@@ -107,10 +108,8 @@ INSERT INTO `chekout` (`order_Id`, `product_name`, `price`, `quantity`) VALUES
 (3, 'POPOP', '525.00', 2),
 (3, 'POPOP', '525.00', 4),
 (3, 'techert blue', '255.00', 6),
-(4, 'techert blue', '255.00', 1),
 (5, 'POPOP', '525.00', 2),
-(6, 'Linear Logo Training Zip Up Hoodie Black', '600.00', 3),
-(7, 'techert blue', '255.00', 5);
+(6, 'Linear Logo Training Zip Up Hoodie Black', '600.00', 3);
 
 -- --------------------------------------------------------
 
@@ -172,6 +171,15 @@ CREATE TABLE `orders` (
   `productId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `quantity`, `customerId`, `productId`) VALUES
+(14, 2, 1, 7),
+(15, 4, 1, 9),
+(16, 6, 1, 6);
+
 -- --------------------------------------------------------
 
 --
@@ -197,10 +205,8 @@ INSERT INTO `order_manager` (`order_Id`, `name_customer`, `phone_customer`, `add
 (1, 'ahmed', '01245459112', 'city nassir', '510.00', 'PayPal', 'Delivered On', '2021-12-08 05:49:05'),
 (2, 'omar', '01666664486', 'cairo', '1530.00', 'credit card', 'Reviewing', '2021-12-08 05:59:32'),
 (3, 'ahmed', '01245459112', 'city nassir', '4935.00', 'PayPal', 'Delivered On', '2021-12-14 00:01:35'),
-(4, 'ahmed', '01245459112', 'city nassir', '255.00', 'pay cash', 'Reviewing', '2021-12-14 00:11:43'),
 (5, 'sayed', '01666664486', 'city nassir', '1050.00', 'pay cash', 'Delivered On', '2021-12-19 01:13:46'),
-(6, 'sayed', '01666664486', 'city nassir', '1800.00', 'pay cash', 'Delivery', '2021-12-19 01:14:05'),
-(7, 'sayed', '01666664486', 'city nassir', '1275.00', 'pay cash', 'Delivery', '2021-12-19 03:13:44');
+(6, 'sayed', '01666664486', 'city nassir', '1800.00', 'pay cash', 'Delivery', '2021-12-19 01:14:05');
 
 -- --------------------------------------------------------
 
@@ -227,12 +233,13 @@ INSERT INTO `product` (`id`, `image`, `image2`, `image3`, `title`, `descriptions
 (1, '1-zoom-desktop.jpg', '4525133_black.jpg', '3516514-BRIGHT-TEE-SPWIN21190421_01-517.jpg', 'techert blue', 'techert blue techert blue techert blue techert blue techert blue', '255.00', 1),
 (2, 'A21312.jpg', '1916002_P.jpg', '51m8toADhaL._SL500_._AC_SL500_.jpg', 'POPOP', 'POPOP POPOP POPOP POPOP', '525.00', 2),
 (3, 'N5118512s5ds5d.webp', 'A21312.jpg', '72f9362f4ccf4f28a318089937115eb4.webp', 'Athletics Windbreaker Jacket Multicolour', 'Athletics Windbreaker Jacket Multicolour Athletics Windbreaker Jacket Multicolour Athletics Windbreaker Jacket Multicolour', '600.00', 2),
-(4, 'sd4d4d444.jpg', 'vg4g4g4b4bvc.webp', 'whistles-check-52.jpg', 'Casual Knitted Long Cardigan Dark Grey', 'Casual Knitted Long Cardigan Dark Grey Casual Knitted Long Cardigan Dark Grey Casual Knitted Long Cardigan Dark Grey Casual Knitted Long Cardigan Dark Grey', '450.00', 2),
 (5, 'black-long.jpg', 'black-long-slee.jpg', 'asdsd22as2.jpg', 'Classics Graphic Crew Sweatshirt Chalk', 'Classics Graphic Crew Sweatshirt Chalk Classics Graphic Crew Sweatshirt Chalk Classics Graphic Crew Sweatshirt Chalk', '500.00', 2),
 (6, 'hjjjkkkl.jpg', 'n6hhjhh.jpg', 'N40764388V_1.jpg', 'Linear Logo Training Zip Up Hoodie Black', 'Linear Logo Training Zip Up Hoodie Black Linear Logo Training Zip Up Hoodie Black', '600.00', 2),
 (7, 'asx.jpg', 'asz.jpg', '4525133_black.jpg', 'SHARE THIS PRODUCT   Official Store Defacto', 'SHARE THIS PRODUCT   Official Store Defacto Man Black Regular Fit Polo Neck Long Sleeve Mont', '200.00', 1),
 (8, 'Reactive Packable Training Jacket BlackWhiteGrey.jpg', '4060981292142_CRP_RAW_2.jpg', 'N44939155V_2.webp', 'Bomber Zipped Jacket With Removable', 'Bomber Zipped Jacket With Removable Hood - Black', '150.00', 1),
-(9, 'e266cecd-84d1-4d58-b7ec-fc19839d8699.png', 'b087c75995ef4329838f3cd2a6d557c9.webp', 'nike-m-nsw-tee-air-manga-futura-107597_3.jpg', 'Merch Long Coat With Pocket For Men', 'Merch Long Coat With Pocket For Men Merch Long Coat With Pocket For Men', '999.00', 1);
+(9, 'e266cecd-84d1-4d58-b7ec-fc19839d8699.png', 'b087c75995ef4329838f3cd2a6d557c9.webp', 'nike-m-nsw-tee-air-manga-futura-107597_3.jpg', 'Merch Long Coat With Pocket For Men', 'Merch Long Coat With Pocket For Men Merch Long Coat With Pocket For Men', '999.00', 1),
+(30, 'N41266128V_4.webp', 'N41266128V_4.webp', 'N41266128V_4.webp', 'Faux Shearling Lined Denim Jacket Blue', 'Faux Shearling Lined Denim Jacket Blue Faux Shearling Lined Denim Jacket Blue Faux Shearling Lined Denim Jacket Blue Faux Shearling Lined Denim Jacket Blue', '750.00', 8),
+(31, 'N47864569V_1.webp', 'N47864569V_1.webp', 'N47864569V_1.webp', 'Kids Contrast Panel Tracksuit Black', 'Kids Contrast Panel Tracksuit Black\r\n Kids Contrast Panel Tracksuit Black\r\n Kids Contrast Panel Tracksuit Black\r\n', '999.99', 8);
 
 --
 -- Indexes for dumped tables
@@ -337,7 +344,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `order_manager`
@@ -349,7 +356,7 @@ ALTER TABLE `order_manager`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Constraints for dumped tables

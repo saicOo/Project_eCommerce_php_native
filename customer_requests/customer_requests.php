@@ -1,9 +1,9 @@
 
 <?php 
+include "../genral/config.php";
+include "../genral/functions.php";
 include "../shared/header.php"; 
  include "../shared/nav.php"; 
- include "../genral/config.php";
-include "../genral/functions.php";
     if(isset($_SESSION['customerName'])){
     $User = $_SESSION['customerName'];
     $slecet = "SELECT * FROM `order_manager` WHERE name_customer = '$User' ORDER BY order_manager.order_Id DESC";

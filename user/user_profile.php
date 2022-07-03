@@ -1,8 +1,6 @@
-<?php include "../shared/header.php"; 
- include "../shared/nav.php"; 
- include "../genral/config.php";
+<?php 
+include "../genral/config.php";
 include "../genral/functions.php";
-
 
     $showBtn = true;
     $idp = $_SESSION['id'];
@@ -79,8 +77,9 @@ if(isset($_POST['add'])){
 
 
 
-
     userPermissions();
+    include "../shared/header.php"; 
+    include "../shared/nav.php"; 
 ?>
  <br>
 <div class="container col-md-4 cart pt-4 ">

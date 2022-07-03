@@ -1,6 +1,5 @@
-<?php include "../shared/header.php"; 
- include "../shared/nav.php"; 
- include "../genral/config.php";
+<?php 
+include "../genral/config.php";
 include "../genral/functions.php";
 
 if(isset($_POST['send'])){
@@ -50,9 +49,8 @@ if(isset($_POST['send'])){
   $i = mysqli_query($connectSQL, $insert);
   header("location: /eCommerce/index.php");
   }
-
-
-
+  include "../shared/header.php"; 
+  include "../shared/nav.php"; 
   
 }
 ?>

@@ -1,7 +1,4 @@
 <?php 
-
-session_start(); 
-
 if(isset($_GET['logout'])){
   session_unset();
   session_destroy();
@@ -63,10 +60,6 @@ $rowCstum = mysqli_fetch_assoc($sCstum);
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/eCommerce/customer_requests/customer_requests.php">requests</a>
-      </li>
-      <?php else: ?>
-      <li class="nav-item">
-        <a class="nav-link" href="/eCommerce/dashboard/list_dashboard.php">Admin</a>
       </li>
       <?php endif; ?>
     </ul>

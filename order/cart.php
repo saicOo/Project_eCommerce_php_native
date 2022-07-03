@@ -1,9 +1,8 @@
 
 <?php 
-include "../shared/header.php"; 
- include "../shared/nav.php"; 
- include "../genral/config.php";
+include "../genral/config.php";
 include "../genral/functions.php";
+
 if(isset($_GET['pId'])){
     $pId = $_GET['pId'];
     
@@ -63,8 +62,9 @@ if(isset($_GET['delete'])){
     }
 
 
-
     userPermissions();
+    include "../shared/header.php"; 
+    include "../shared/nav.php"; 
 ?>
 
 <div class="cart pt-5">

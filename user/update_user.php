@@ -1,9 +1,4 @@
 
- 
-
-
-
-
 <div class="modal" style="display: block;" >
   <div class="modal-dialog mt-5">
     <div class="modal-content ">

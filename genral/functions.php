@@ -12,8 +12,20 @@ function testMessage($condation , $mess){
     }
 }
 
+function authAdmin(){
+if(!$_SESSION['admin']){
+    header("location: /eCommerce/dashboard/admin/login.php");
+    exit;
+}
+}
+function checkLogin(){
+if(isset($_SESSION['admin'])){
+    header("location: /eCommerce/dashboard/");
+    exit;
+}
+}
 
-function auth($role){
+function permissionsAdmin($role){
     if($_SESSION['admin']){
     if($_SESSION['role'] == $role || $_SESSION['role'] == 0){
 

@@ -1,7 +1,7 @@
-<?php include "shared/header.php" ;
- include "shared/nav.php" ;
- include "./genral/config.php";
- include "./genral/functions.php";
+<?php 
+include "./genral/config.php";
+include "./genral/functions.php";
+
 
  $slecet = "SELECT * FROM product";
 $s = mysqli_query($connectSQL ,$slecet );
@@ -14,7 +14,8 @@ if(isset($_GET['search'])){
   $search = $_GET['search_term'];
   header("location: /eCommerce/search/search.php?search=$search");
 }
-
+include "shared/header.php" ;
+ include "shared/nav.php" ;
  ?>
  <section id="home">
 <div class="home">
@@ -67,7 +68,7 @@ if(isset($_GET['search'])){
     <div class="row">
       <div class="col-md-6">
         
-        <a href="/eCommerce/collection/women.php">
+        <a href="/eCommerce/collection/collection.php?category=2">
         <div class="card">
           <img src="https://image.freepik.com/free-photo/two-cheerful-girls-sitting-floor-together-looking-away-white-wall_171337-2652.jpg" alt="">
           <div class="overlay"></div>
@@ -80,7 +81,7 @@ if(isset($_GET['search'])){
       </a>
       </div>
       <div class="col-md-6">
-      <a href="/eCommerce/collection/men.php">
+      <a href="/eCommerce/collection/collection.php?category=1">
         <div class="card">
         <img src="https://image.freepik.com/free-photo/portrait-handsome-smiling-stylish-young-man-model-wearing-jeans-clothes-sunglasses-fashion-man_158538-5015.jpg" alt="">
         <div class="overlay"></div>

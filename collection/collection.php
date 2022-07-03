@@ -1,7 +1,8 @@
-<?php include "../shared/header.php" ;
+<?php 
+include "../genral/config.php";
+include "../genral/functions.php";
+include "../shared/header.php" ;
  include "../shared/nav.php" ;
- include "../genral/config.php";
- include "../genral/functions.php";
 if(isset($_GET['category'])){
   $category = $_GET['category'];
   // select table category 1 row

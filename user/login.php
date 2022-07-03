@@ -1,8 +1,6 @@
-<?php include "../shared/header.php"; 
- include "../shared/nav.php"; 
- include "../genral/config.php";
+<?php 
+include "../genral/config.php";
 include "../genral/functions.php";
-
 
 if(isset($_POST['login'])){
     $email = $_POST['email'];
@@ -23,7 +21,8 @@ if(isset($_POST['login'])){
       }
 
 }
-
+include "../shared/header.php"; 
+ include "../shared/nav.php"; 
 ?>
 <section class='Login_page pt-5'>
     <div class="login">
@@ -48,7 +47,7 @@ if(isset($_POST['login'])){
             </div>
                   <?php if(!empty($errorEmail)):  ?>
                 <div class="alert alert-danger" role="alert">
-                  <?php echo $errorName[0] ;?>
+                  <?php echo $errorEmail[0] ;?>
                 </div>
                   <?php endif; ?>
               <div class="text-center form-group">

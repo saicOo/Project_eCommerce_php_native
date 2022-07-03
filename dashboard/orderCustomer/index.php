@@ -1,8 +1,6 @@
 <?php 
-include "../../shared/header.php"; 
- include "../../shared/nav_admin.php"; 
- include "../../genral/config.php";
-include "../../genral/functions.php";
+
+include "../../genral/config.php";
 $slecet = "SELECT * FROM `order_manager` ORDER BY order_manager.order_Id DESC";
 $s = mysqli_query($connectSQL ,$slecet );
 
@@ -10,7 +8,7 @@ if(isset($_GET['delete'])){
   $id = $_GET['delete'];
   $delete = "DELETE FROM order_manager WHERE order_Id = $id ";
   mysqli_query($connectSQL, $delete);
-  header("location: /eCommerce/dashboard/orderCustomer/order_customer.php");
+  header("Refresh:0");
 }
 
 if(isset($_GET['edit'])){
@@ -27,15 +25,16 @@ $dateR = $row['order_date'];
 
   }
 }
-
-auth(1);
+include "../../genral/functions.php";
+include "../layouts/header.php";
+include "../layouts/sidebar.php";
 ?>
-<div class="page_admin">
-<div class="px-5 py-4">
-    <div class="card bg-dark ">
-    <div class="card-body overflow-auto">
-        <h5 class="card-title text-secondary">List / Orders</h5>
-<table class="table table-hover table-dark">
+<main class="app-content">
+        <div class="col-md-12">
+          <div class="tile">
+            <h3 class="tile-title">Display Orders</h3>
+            <div class="table-responsive">
+<table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">OrderID</th>
@@ -62,12 +61,12 @@ auth(1);
       <td><?php echo $data['payment_method'] ;?></td>
       <td><?php echo $data['order_date'] ;?></td>
       <td class="text-success"><?php echo $data['order_status'] ;?> 
-      <a href="/eCommerce/dashboard/orderCustomer/order_customer.php?edit=<?php echo $data['order_Id']; ?>" class="btn btn-outline-info"><i class="fas fa-pencil-alt"></i></a>
+      <a href="/eCommerce/dashboard/orderCustomer/index.php?edit=<?php echo $data['order_Id']; ?>" class="btn btn-outline-info"><i class="fas fa-pencil-alt"></i></a>
 </td>
       
       
       <td>
-          <table class="table table-hover main_table table-dark">
+          <table class="table table-hover main_table">
               <thead>
                   <tr>
                       <th scope="col">ItemName</th>
@@ -94,18 +93,18 @@ $sP = mysqli_query($connectSQL ,$slecetP ); ?>
                 </table>
       </td>
       <td>
-        <a href="/eCommerce/dashboard/orderCustomer/order_customer.php?delete=<?php echo $data['order_Id']; ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+        <a href="/eCommerce/dashboard/orderCustomer/index.php?delete=<?php echo $data['order_Id']; ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
     </td>
       <td>
-        <a href="/eCommerce/dashboard/orderCustomer/print_order.php?print=<?php echo $data['order_Id']; ?>" class="btn btn-success"><i class="fas fa-print"></i></a>
+        <a href="/eCommerce/dashboard/orderCustomer/invoice.php?print=<?php echo $data['order_Id']; ?>" class="btn btn-success"><i class="fas fa-print"></i></a>
     </td>
     </tr>
     <?php } ?>
   </tbody>
-</table>
-    </div>
-</div>
-</div>
-</div>
-<?php include "../../shared/footer.php" ?>
+  </table>
+            </div>
+          </div>
+        </div>
+        </main>
+<?php include "../layouts/footer.php"; ?>
 

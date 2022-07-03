@@ -1,7 +1,8 @@
-<?php include "../shared/header.php" ;
+<?php 
+include "../genral/config.php";
+include "../genral/functions.php";
+include "../shared/header.php" ;
  include "../shared/nav.php" ;
- include "../genral/config.php";
- include "../genral/functions.php";
 //  SELECT * FROM comment_blog JOIN blog , customers WHERE customers.id = comment_blog.customer_Id
 //  blog
  $slecet = "SELECT * FROM customers JOIN blog ON customers.id = blog.customerId";
@@ -18,7 +19,7 @@ if(isset($_GET['delete'])){
   $id = $_GET['delete'];
   $delete = "DELETE FROM blog WHERE blogId = $id";
   mysqli_query($connectSQL, $delete);
-  header("location: /eCommerce/blog/blog.php");
+  header("location: /ecommerce/blog/blog.php");
 }
 
 if(isset($_SESSION['id'])){
@@ -38,17 +39,17 @@ if(isset($_GET['add'])){
     if(empty($errorcomment)){
       $insertc = "INSERT INTO `comment_blog` VALUES (NULL ,'$comment',$ccId,$add)";
       $ic = mysqli_query($connectSQL ,$insertc);
-      header("location: /eCommerce/blog/blog.php");
+      header("location: /ecommerce/blog/blog.php");
     }
      }}else{
-      header("location: /eCommerce/user/login.php");
+      header("location: /ecommerce/user/login.php");
     }
   }
   if(isset($_GET['deleteC'])){
     $idC = $_GET['deleteC'];
     $deleteC = "DELETE FROM comment_blog WHERE id_comment = $idC";
     mysqli_query($connectSQL, $deleteC);
-    header("location: /eCommerce/blog/blog.php");
+    header("location: /ecommerce/blog/blog.php");
   }
  ?>
 <section id="blog">

@@ -1,9 +1,6 @@
-<?php include "../../shared/header.php"; 
- include "../../shared/nav_admin.php"; 
- include "../../genral/config.php";
+<?php 
 include "../../genral/functions.php";
-
-
+ include "../../genral/config.php";
 
 if(isset($_POST['send'])){
   $name = $_POST['name'];
@@ -15,7 +12,7 @@ if(isset($_POST['send'])){
   if(empty($errorName)){
   $insert = "INSERT INTO `category` Values (NULL,'$name')";
   $i = mysqli_query($connectSQL, $insert);
-  header("location: /eCommerce/dashboard/category/list.php");
+  header("location: /eCommerce/dashboard/category/index.php");
   }
 }
 $name = "";
@@ -36,52 +33,55 @@ if(isset($_POST['update'])){
   }if(empty($errorName)){
   $updateQ =  "UPDATE category SET name='$name' WHERE id = $id";
   $u = mysqli_query($connectSQL, $updateQ);
-  header("location: /eCommerce/dashboard/category/list.php");
+  header("location: /eCommerce/dashboard/category/index.php");
   }
 }
 }
-auth(0);
+
+include "../layouts/header.php";
+include "../layouts/sidebar.php";
 ?>
-<div class="page_admin">
-<div class="container py-4">
-  
-<div class="card text-white bg-dark">
-<div class="card-header">
-<?php if($update): ?>
-    <div class="heading-landing text-center ">
-        Update category <?php echo $id ?>
-    </div>
-  <?php else: ?>
-    <div class="heading-landing text-center ">
-        Add category
-    </div>
-    <?php endif;?>
-</div>
-  <div class="card-body">
-<form method="POST" autocomplete="off">
-  <div class="form-row">
-    <div class="form-group col-12">
-      <label for="inputname4">name category :</label>
-      <input value="<?php echo $name ?>" name='name' type="text" class="form-control" id="inputname4" placeholder="name category">
-      <?php if(!empty($errorName)):  ?>
-      <div class="alert alert-danger" role="alert">
-  <?php echo $errorName[0] ;?>
-</div>
-<?php endif; ?>
-    </div>
-  <?php if($update): ?>
-  <div class="text-center form-group col-12">
-    <button name="update" class="btn btn-info">Update Data</button>
-  </div>
-  <?php else: ?>
-  <div class="text-center form-group col-12">
-    <button type="submit" name="send" class="btn btn-primary">Add Data</button>
-  </div>
-  <?php endif; ?>
-</form>
-</div>
-</div>
-</div>
-</div>
-</div>
-<?php include "../../shared/footer.php" ?>
+<main class="app-content">
+<div class="row">
+  <div class="col-md-6">
+    <div class="tile">
+          <?php if($update): ?>
+            <h3 class="tile-title">
+            Update category <?php echo $id ?>
+            </h3>
+            <?php else: ?>
+              <h3 class="tile-title">
+            Add category
+            </h3>
+              <?php endif;?>
+            <div class="tile-body">
+              <form class="form-horizontal" method="POST" autocomplete="off">
+                <div class="form-group row">
+                  <label class="control-label col-md-3">Name category :</label>
+                  <div class="col-md-8">
+                    <input class="form-control" value="<?php echo $name ?>" name='name' type="text" placeholder="Name Category">
+                    <?php if(!empty($errorName)):  ?>
+                    <div class="alert alert-danger" role="alert">
+                      <?php echo $errorName[0] ;?>
+                    </div>
+                  <?php endif; ?>
+                  </div>
+                </div>
+                <div class="tile-footer">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-3">
+                <?php if($update): ?>
+                  <button class="btn btn-primary" type="update"><i class="fa fa-fw fa-lg fa-check-circle"></i>Update Data</button>
+                  <?php else: ?>
+                  <button class="btn btn-primary" type="send"><i class="fa fa-fw fa-lg fa-check-circle"></i>Add Data</button>
+                  <?php endif; ?>
+                </div>
+              </div>
+            </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+</main>
+<?php include "../layouts/footer.php"; ?>
