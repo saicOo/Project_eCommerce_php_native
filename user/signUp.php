@@ -49,10 +49,10 @@ if(isset($_POST['send'])){
   $i = mysqli_query($connectSQL, $insert);
   header("location: /eCommerce/index.php");
   }
-  include "../shared/header.php"; 
-  include "../shared/nav.php"; 
   
 }
+include "../shared/header.php"; 
+include "../shared/nav.php"; 
 ?>
 
 <section class='Sign_page pt-5'>
