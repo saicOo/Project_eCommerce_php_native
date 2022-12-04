@@ -1,6 +1,7 @@
 <?php 
+ include_once  "../../init.php";
 include "../../genral/functions.php";
- include "../../genral/config.php";
+include "../../genral/config.php";
 
 if(isset($_POST['send'])){
   $name = $_POST['name'];
@@ -12,7 +13,7 @@ if(isset($_POST['send'])){
   if(empty($errorName)){
   $insert = "INSERT INTO `category` Values (NULL,'$name')";
   $i = mysqli_query($connectSQL, $insert);
-  header("location: /eCommerce/dashboard/category/index.php");
+  header("location: $root_path/dashboard/category/index.php");
   }
 }
 $name = "";
@@ -33,7 +34,7 @@ if(isset($_POST['update'])){
   }if(empty($errorName)){
   $updateQ =  "UPDATE category SET name='$name' WHERE id = $id";
   $u = mysqli_query($connectSQL, $updateQ);
-  header("location: /eCommerce/dashboard/category/index.php");
+  header("location: $root_path/dashboard/category/index.php");
   }
 }
 }

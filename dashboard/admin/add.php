@@ -1,6 +1,7 @@
 
 <?php 
  
+include_once  "../../init.php";
 include "../../genral/config.php";
 
   
@@ -71,7 +72,7 @@ if(isset($_POST['update'])){
   if(empty($errorName)){
   $updateQ =  "UPDATE admins SET name='$name' , password='$password',`roles`=$role WHERE id = $id";
   $u = mysqli_query($connectSQL, $updateQ);
-  header("location: /ecommerce/dashboard/admin/index.php");
+  header("location: $root_path/dashboard/admin/index.php");
   }
 }
 }

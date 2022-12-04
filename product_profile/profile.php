@@ -1,4 +1,5 @@
-<?php 
+<?php
+include_once  "../init.php";
 include "../genral/config.php";
 include "../genral/functions.php";
 
@@ -24,10 +25,10 @@ if(isset($_GET['pId'])){
             $insert = "INSERT INTO orders VALUES (NULL ,$quantity,$customerId ,$productId)";
             $i = mysqli_query($connectSQL ,$insert);
             $massege =  testMessage($i , "insert order");
-            header("location: /eCommerce/product_profile/profile.php?pId=$productId");
+            header("location: $root_path/product_profile/profile.php?pId=$productId");
             exit;
         }else{
-            header("location: /eCommerce/user/login.php");
+            header("location: $root_path/user/login.php");
             exit;
         }
     }

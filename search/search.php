@@ -1,4 +1,5 @@
-<?php 
+<?php
+include_once  "../init.php";
 include "../genral/config.php";
 include "../genral/functions.php";
 
@@ -57,7 +58,7 @@ if(isset($_GET['search'])){
                                 <div class="card wow animate__bounceInUp">
                                         <div class="card-head">
                                             <img src="../dashboard/product/upload/<?php echo $data['image'] ; ?>" class="card-img-top" alt="...">
-                                            <a href="/eCommerce/product_profile/profile.php?pId=<?php echo $data['id'];?>" class="btn btn-light quick_view rounded-pill">Quick View</a>
+                                            <a href="<?php echo $root_path ?>/product_profile/profile.php?pId=<?php echo $data['id'];?>" class="btn btn-light quick_view rounded-pill">Quick View</a>
                                         </div>        
                                     <div class="card-body">
                                         <h5 class='card-title'><?php echo $data['title'] ; ?></h5>

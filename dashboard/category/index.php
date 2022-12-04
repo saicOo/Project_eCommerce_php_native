@@ -1,4 +1,5 @@
 <?php
+include_once  "../../init.php";
 include "../../genral/functions.php";
 include "../../genral/config.php";
 
@@ -8,7 +9,7 @@ if(isset($_GET['delete'])){
   $id = $_GET['delete'];
   $delete = "DELETE FROM category WHERE id = $id";
   mysqli_query($connectSQL, $delete);
-  header("location: /eCommerce/dashboard/category/index.php");
+  header("location: $root_path/dashboard/category/index.php");
 }
 include "../layouts/header.php";
 include "../layouts/sidebar.php";
@@ -32,10 +33,10 @@ include "../layouts/sidebar.php";
       <th scope="row"><?php echo $data['id']; ?></th>
       <td><?php echo $data['name'] ;?></td>
       <td>
-        <a href="/ecommerce/dashboard/category/index.php?edit=<?php echo $data['id']; ?>" class="btn btn-info">Edit</a>
+        <a href="<?php echo $root_path ?>/dashboard/category/index.php?edit=<?php echo $data['id']; ?>" class="btn btn-info">Edit</a>
     </td>
       <td>
-        <a href="/ecommerce/dashboard/category/index.php?delete=<?php echo $data['id']; ?> " class="btn btn-danger">remove</a>
+        <a href="<?php echo $root_path ?>/dashboard/category/index.php?delete=<?php echo $data['id']; ?> " class="btn btn-danger">remove</a>
     </td>
     </tr>
     <?php } ?>

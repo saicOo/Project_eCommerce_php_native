@@ -12,9 +12,9 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
 <!-- wow Animate -->
-<script src="/eCommerce/js/wow.min.js"></script>
+<script src="<?php echo $root_path ?>/js/wow.min.js"></script>
 <!-- main js -->
-<script src="/eCommerce/js/main.js"></script>
+<script src="<?php echo $root_path ?>/js/main.js"></script>
 <!-- jquery cdn -->
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -30,7 +30,7 @@
         $("#search-box").html('');
     }else{
         $.ajax({
-            url:"/eCommerce/genral/searchAjax.php",
+            url:"<?php echo $root_path ?>/genral/searchAjax.php",
             method:"post",
             data:{search:txt},
             dataType:"text",

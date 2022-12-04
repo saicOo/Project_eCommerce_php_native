@@ -8,24 +8,24 @@
         </div>
       </div>
       <ul class="app-menu">
-        <li><a class="app-menu__item active" href="/eCommerce/dashboard/"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+        <li><a class="app-menu__item active" href="<?php echo $root_path ?>/dashboard/"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Control</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="/eCommerce/dashboard/admin/"><i class="icon fa fa-circle-o"></i> List Admins</a></li>
-            <li><a class="treeview-item" href="/eCommerce/dashboard/admin/add.php"><i class="icon fa fa-circle-o"></i> Add Admins</a></li>
+            <li><a class="treeview-item" href="<?php echo $root_path ?>/dashboard/admin/"><i class="icon fa fa-circle-o"></i> List Admins</a></li>
+            <li><a class="treeview-item" href="<?php echo $root_path ?>/dashboard/admin/add.php"><i class="icon fa fa-circle-o"></i> Add Admins</a></li>
           </ul>
         </li>
-        <li><a class="app-menu__item" href="/eCommerce/dashboard/orderCustomer/"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Orders</span></a></li>
+        <li><a class="app-menu__item" href="<?php echo $root_path ?>/dashboard/orderCustomer/"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Orders</span></a></li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Insert</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="/eCommerce/dashboard/category/add.php"><i class="icon fa fa-circle-o"></i> Category</a></li>
-            <li><a class="treeview-item" href="/eCommerce/dashboard/product/add.php"><i class="icon fa fa-circle-o"></i> Product</a></li>
+            <li><a class="treeview-item" href="<?php echo $root_path ?>/dashboard/category/add.php"><i class="icon fa fa-circle-o"></i> Category</a></li>
+            <li><a class="treeview-item" href="<?php echo $root_path ?>/dashboard/product/add.php"><i class="icon fa fa-circle-o"></i> Product</a></li>
           </ul>
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Display</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="/eCommerce/dashboard/category/"><i class="icon fa fa-circle-o"></i> Category</a></li>
-            <li><a class="treeview-item" href="/eCommerce/dashboard/product/"><i class="icon fa fa-circle-o"></i> Products</a></li>
+            <li><a class="treeview-item" href="<?php echo $root_path ?>/dashboard/category/"><i class="icon fa fa-circle-o"></i> Category</a></li>
+            <li><a class="treeview-item" href="<?php echo $root_path ?>/dashboard/product/"><i class="icon fa fa-circle-o"></i> Products</a></li>
           </ul>
         </li>
     </aside>

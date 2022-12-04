@@ -1,5 +1,6 @@
 <?php
 
+include_once  "../../init.php";
 include "../../genral/config.php";
 $slecet = "SELECT category.name AS categoryName ,  product.id , product.title , product.descriptions , product.price , product.image  FROM category JOIN product ON categoryId = category.id ORDER BY product.id DESC";
 $s = mysqli_query($connectSQL ,$slecet);
@@ -7,7 +8,7 @@ if(isset($_GET['delete'])){
   $id = $_GET['delete'];
   $delete = "DELETE FROM product WHERE id = $id";
   mysqli_query($connectSQL, $delete);
-  header("location: /ecommerce/dashboard/product/index.php");
+  header("location: $root_path/dashboard/product/index.php");
 }
 include "../../genral/functions.php";
 include "../layouts/header.php";
@@ -42,10 +43,10 @@ include "../layouts/sidebar.php";
       <td><?php echo $data['categoryName'] ;?></td>
       <td><img  style="width:50px;" src="./upload/<?php echo $data['image'] ;?>" alt="" ></td>
       <td>
-        <a href="/ecommerce/dashboard/product/add.php?edit=<?php echo $data['id']; ?>" class="btn btn-info">Edit</a>
+        <a href="<?php echo $root_path ?>/dashboard/product/add.php?edit=<?php echo $data['id']; ?>" class="btn btn-info">Edit</a>
     </td>
       <td>
-        <a href="/ecommerce/dashboard/product/index.php?delete=<?php echo $data['id']; ?> " class="btn btn-danger">remove</a>
+        <a href="<?php echo $root_path ?>/dashboard/product/index.php?delete=<?php echo $data['id']; ?> " class="btn btn-danger">remove</a>
     </td>
     </tr>
     <?php } ?>

@@ -1,4 +1,5 @@
-<?php 
+<?php
+include_once  "../init.php";
 include "../genral/config.php";
 include "../genral/functions.php";
 
@@ -72,7 +73,7 @@ if(isset($_POST['add'])){
       $idp = $_SESSION['id'];
       $updateQ =  "UPDATE customers SET `image_user`='$image_name' WHERE id = $idp";
       $u = mysqli_query($connectSQL, $updateQ);
-      header("location: /eCommerce/user/user_profile.php");
+      header("location: $root_path/user/user_profile.php");
     }
 
 
@@ -101,7 +102,7 @@ if(isset($_POST['add'])){
     <p class="card-text">ADDRESS : <?php echo $addressR  ?></p>
     <p class="card-text">PHONE : <?php echo $phoneR  ?></p>
     <div class="text-center mt-5">
-      <a href="/ecommerce/user/user_profile.php?edit=<?php echo $idp; ?>" class="btn btn-primary">Update Data <i class="fas fa-user-edit"></i></a>
+      <a href="<?php echo $root_path ?>/user/user_profile.php?edit=<?php echo $idp; ?>" class="btn btn-primary">Update Data <i class="fas fa-user-edit"></i></a>
     </div>
   </div>
 </div>

@@ -1,4 +1,5 @@
-<?php 
+<?php
+include_once  "./init.php";
 include "./genral/config.php";
 include "./genral/functions.php";
 
@@ -12,7 +13,7 @@ $sFmale = mysqli_query($connectSQL ,$slecetFmale );
 // get search
 if(isset($_GET['search'])){
   $search = $_GET['search_term'];
-  header("location: /eCommerce/search/search.php?search=$search");
+  header("location: $root_path/search/search.php?search=$search");
 }
 include "shared/header.php" ;
  include "shared/nav.php" ;
@@ -32,7 +33,7 @@ include "shared/header.php" ;
       <div class="carousel-caption d-none d-md-block">
         <h5 class='display-4'>Women Colection 2022</h5>
         <h2 class='display-2 pb-4 mb-3'>NEW SEASON</h2>
-        <a href="/eCommerce/collection/collection.php?category=2" class="btn btn-outline-info rounded-pill" >SHOP NOW</a>
+        <a href="<?php echo $root_path ?>/collection/collection.php?category=2" class="btn btn-outline-info rounded-pill" >SHOP NOW</a>
       </div>
     </div>
     <div class="carousel-item">
@@ -41,7 +42,7 @@ include "shared/header.php" ;
       <div class="carousel-caption d-none d-md-block">
       <h5 class='display-4'>Men Colection 2022</h5>
         <h2 class='display-2 pb-4 mb-3'>NEW ARRIVAL</h2>
-        <a href="/eCommerce/collection/collection.php?category=1" class="btn btn-outline-info rounded-pill" >SHOP NOW</a>
+        <a href="<?php echo $root_path ?>/collection/collection.php?category=1" class="btn btn-outline-info rounded-pill" >SHOP NOW</a>
       </div>
     </div>
     <div class="carousel-item">
@@ -50,7 +51,7 @@ include "shared/header.php" ;
       <div class="carousel-caption d-none d-md-block">
       <h5 class='display-4'>Men New-Season</h5>
         <h2 class='display-2 pb-4 mb-3'>JACETS & COATS</h2>
-        <a href="/eCommerce/collection/collection.php?category=1" class="btn btn-outline-info rounded-pill" >SHOP NOW</a>
+        <a href="<?php echo $root_path ?>/collection/collection.php?category=1" class="btn btn-outline-info rounded-pill" >SHOP NOW</a>
       </div>
     </div>
   </div>
@@ -68,7 +69,7 @@ include "shared/header.php" ;
     <div class="row">
       <div class="col-md-6">
         
-        <a href="/eCommerce/collection/collection.php?category=2">
+        <a href="<?php echo $root_path ?>/collection/collection.php?category=2">
         <div class="card">
           <img src="https://image.freepik.com/free-photo/two-cheerful-girls-sitting-floor-together-looking-away-white-wall_171337-2652.jpg" alt="">
           <div class="overlay"></div>
@@ -81,7 +82,7 @@ include "shared/header.php" ;
       </a>
       </div>
       <div class="col-md-6">
-      <a href="/eCommerce/collection/collection.php?category=1">
+      <a href="<?php echo $root_path ?>/collection/collection.php?category=1">
         <div class="card">
         <img src="https://image.freepik.com/free-photo/portrait-handsome-smiling-stylish-young-man-model-wearing-jeans-clothes-sunglasses-fashion-man_158538-5015.jpg" alt="">
         <div class="overlay"></div>
@@ -113,7 +114,7 @@ include "shared/header.php" ;
       <div class="card wow animate__bounceInUp" >
         <div class="card-head">
           <img src="./dashboard/product/upload/<?php echo $data['image'] ; ?>" class="card-img-top" alt="...">
-          <a href="/eCommerce/product_profile/profile.php?pId=<?php echo $data['id'];?>" class="btn btn-light quick_view rounded-pill">Quick View</a>
+          <a href="<?php echo $root_path ?>/product_profile/profile.php?pId=<?php echo $data['id'];?>" class="btn btn-light quick_view rounded-pill">Quick View</a>
         </div>
         <div class="card-body p-2">
           <h5 class='card-title'><?php echo $data['title'] ; ?></h5>

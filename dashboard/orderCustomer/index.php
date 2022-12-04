@@ -1,5 +1,6 @@
 <?php 
 
+include_once  "../../init.php";
 include "../../genral/config.php";
 $slecet = "SELECT * FROM `order_manager` ORDER BY order_manager.order_Id DESC";
 $s = mysqli_query($connectSQL ,$slecet );
@@ -61,7 +62,7 @@ include "../layouts/sidebar.php";
       <td><?php echo $data['payment_method'] ;?></td>
       <td><?php echo $data['order_date'] ;?></td>
       <td class="text-success"><?php echo $data['order_status'] ;?> 
-      <a href="/eCommerce/dashboard/orderCustomer/index.php?edit=<?php echo $data['order_Id']; ?>" class="btn btn-outline-info"><i class="fas fa-pencil-alt"></i></a>
+      <a href="<?php echo $root_path ?>/dashboard/orderCustomer/index.php?edit=<?php echo $data['order_Id']; ?>" class="btn btn-outline-info"><i class="fas fa-pencil-alt"></i></a>
 </td>
       
       
@@ -93,10 +94,10 @@ $sP = mysqli_query($connectSQL ,$slecetP ); ?>
                 </table>
       </td>
       <td>
-        <a href="/eCommerce/dashboard/orderCustomer/index.php?delete=<?php echo $data['order_Id']; ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+        <a href="<?php echo $root_path ?>/dashboard/orderCustomer/index.php?delete=<?php echo $data['order_Id']; ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
     </td>
       <td>
-        <a href="/eCommerce/dashboard/orderCustomer/invoice.php?print=<?php echo $data['order_Id']; ?>" class="btn btn-success"><i class="fas fa-print"></i></a>
+        <a href="<?php echo $root_path ?>/dashboard/orderCustomer/invoice.php?print=<?php echo $data['order_Id']; ?>" class="btn btn-success"><i class="fas fa-print"></i></a>
     </td>
     </tr>
     <?php } ?>

@@ -1,4 +1,5 @@
 <?php 
+include_once  "../../init.php";
 include "../../genral/config.php";
 include "../../genral/functions.php";
 checkLogin();
@@ -13,7 +14,7 @@ if(isset($_POST['login'])){
        $_SESSION['admin'] = $email;
        $_SESSION['adminName'] = $row['name'];
        $_SESSION['role'] = $row['roles'];
-       header("location: /eCommerce/dashboard/index.php");
+       header("location: $root_path/dashboard/index.php");
       }else{
         $errorEmail[]="User Email or password error!";
     }

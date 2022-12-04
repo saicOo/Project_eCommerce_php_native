@@ -2,6 +2,7 @@
 
 <?php 
 
+include_once  "../../init.php";
 include "../../genral/config.php";
  
  if(isset($_POST['send'])){
@@ -138,7 +139,7 @@ if(isset($_POST['update'])){
   if(empty($errorTitle) && empty($errorDescriptions)  && empty($errorPrice)  && empty($errorImage1)  && empty($errorImage2) && empty($errorImage3)){
   $updateQ =  "UPDATE product SET `image`='$image_name', image2='$image_name2', image3='$image_name3', `title`='$title',categoryId = $categoryId,descriptions = '$descriptions' , price = $price WHERE id = $id";
   $u = mysqli_query($connectSQL, $updateQ);
-  header("location: /ecommerce/dashboard/product/index.php");
+  header("location: $root_path/dashboard/product/index.php");
   }
 }
 }

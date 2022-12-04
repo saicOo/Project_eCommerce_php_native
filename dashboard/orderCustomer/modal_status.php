@@ -22,7 +22,7 @@
     <?php else: ?>
     <button name='update' class="btn btn-success">update</button>
     <?php endif; ?>
-    <a class="btn btn-secondary" href="/eCommerce/dashboard/orderCustomer/index.php">Close</a>
+    <a class="btn btn-secondary" href="<?php echo $root_path ?>/dashboard/orderCustomer/index.php">Close</a>
 </form>
       </div>
     </div>

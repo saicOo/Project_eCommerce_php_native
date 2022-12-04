@@ -1,5 +1,4 @@
 <?php 
-
 function testMessage($condation , $mess){
     if($condation){
         echo "<div class='alert alert-info text-center mx-auto w-50'>
@@ -13,42 +12,46 @@ function testMessage($condation , $mess){
 }
 
 function authAdmin(){
+    $root_path = $GLOBALS['root_path'];
 if(!$_SESSION['admin']){
-    header("location: /eCommerce/dashboard/admin/login.php");
+    header("location: $root_path/dashboard/admin/login.php");
     exit;
 }
 }
 function checkLogin(){
 if(isset($_SESSION['admin'])){
-    header("location: /eCommerce/dashboard/");
+    header("location: $root_path/dashboard/");
     exit;
 }
 }
 
 function permissionsAdmin($role){
+    $root_path = $GLOBALS['root_path'];
     if($_SESSION['admin']){
     if($_SESSION['role'] == $role || $_SESSION['role'] == 0){
 
     }else{
-        header("location: /eCommerce/dashboard/admin/login.php");
+        header("location: $root_path/dashboard/admin/login.php");
     }
 
     }else{
-        header("location: /eCommerce/dashboard/admin/login.php");
+        header("location: $root_path/dashboard/admin/login.php");
     }
 
 }
 function userPermissions(){
+    $root_path = $GLOBALS['root_path'];
     if($_SESSION['customer']){
 
     }else{
-        header("location: /eCommerce/user/login.php");
+        header("location: $root_path/user/login.php");
     }
 }
 function notUserPermissions(){
+    $root_path = $GLOBALS['root_path'];
     if(isset($_SESSION['customer']) ){
 
-        header("location: /eCommerce/index.php");
+        header("location: $root_path/index.php");
     }else{
     }
 }

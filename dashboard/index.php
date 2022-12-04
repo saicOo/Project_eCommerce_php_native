@@ -1,5 +1,5 @@
 <?php
-
+include_once  "../init.php";
 include "../genral/config.php";
 
   $chartJs =true;

@@ -1,5 +1,6 @@
 <?php 
 
+include_once  "../../init.php";
 include "../../genral/config.php";
 
  if(isset($_GET['print'])){

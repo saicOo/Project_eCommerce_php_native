@@ -1,4 +1,5 @@
-<?php 
+<?php
+include_once  "../init.php";
 include "../genral/config.php";
 include "../genral/functions.php";
 
@@ -47,7 +48,7 @@ if(isset($_POST['send'])){
   if(empty($errorName) && empty($errorEmail) && empty($errorPassword) && empty($errorAddress) && empty($errorPhone) ){
     $insert = "INSERT INTO customers (`id`,`name`, `email` ,`password`, `phone`, `address`) Values (NULL,'$name','$email','$password','$phone','$address')";
   $i = mysqli_query($connectSQL, $insert);
-  header("location: /eCommerce/index.php");
+  header("location: $root_path/index.php");
   }
   
 }
@@ -124,7 +125,7 @@ include "../shared/nav.php";
           </div>
         </div>
         <div class="col-md-6 p-md-0 image-Sign d-md-block d-none">
-          <img src="/eCommerce/image/login-image.jpg" alt="">
+          <img src="<?php echo $root_path ?>/image/login-image.jpg" alt="">
         </div>
     </div>
 </section>

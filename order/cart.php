@@ -1,8 +1,9 @@
 
-<?php 
+<?php
+include_once  "../init.php";
 include "../genral/config.php";
 include "../genral/functions.php";
-
+userPermissions();
 if(isset($_GET['pId'])){
     $pId = $_GET['pId'];
     
@@ -22,7 +23,7 @@ if(isset($_GET['delete'])){
   $id = $_GET['delete'];
   $delete = "DELETE FROM orders WHERE id = $id";
   mysqli_query($connectSQL, $delete);
-  header("location: /eCommerce/order/cart.php");
+  header("location: $root_path/order/cart.php");
 }
     $select = "SELECT * FROM customers where id = $idUser";
     $sr = mysqli_query($connectSQL , $select);
@@ -57,12 +58,12 @@ if(isset($_GET['delete'])){
 
   $deleteO = "DELETE FROM `orders` WHERE customerId = $idUser";
   mysqli_query($connectSQL, $deleteO);
-  header("location: /eCommerce/order/cart.php");
+  header("location: $root_path/order/cart.php");
 
     }
 
 
-    userPermissions();
+    
     include "../shared/header.php"; 
     include "../shared/nav.php"; 
 ?>
@@ -92,7 +93,7 @@ if(isset($_GET['delete'])){
       <td>$<?php echo $data['price'] ;?></td>
       <td><?php echo $data['quantity']?></td>
       <td>$<?php echo $data['totalQuantity'] ;?></td>
-      <td><a href="/eCommerce/order/cart.php?delete=<?php echo $data['orderID']; ?> " class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
+      <td><a href="<?php echo $root_path ?>/order/cart.php?delete=<?php echo $data['orderID']; ?> " class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
     </tr>
     <?php } ?>
   </tbody>
@@ -139,7 +140,7 @@ if(isset($_GET['delete'])){
 <?php else: ?>
   <div class="text-center ">
 
-    <a href="/eCommerce/index.php#content_product" class="btn btn-warning">Shopping</a>
+    <a href="<?php echo $root_path ?>/index.php#content_product" class="btn btn-warning">Shopping</a>
     <div class="cart-empty mt-5">
       <img class='img-fluid' src="https://image.freepik.com/free-vector/no-data-concept-illustration_114360-626.jpg" alt="">
     </div>

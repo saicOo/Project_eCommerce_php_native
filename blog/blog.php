@@ -1,4 +1,5 @@
-<?php 
+<?php
+include_once  "../init.php";
 include "../genral/config.php";
 include "../genral/functions.php";
 include "../shared/header.php" ;
@@ -19,7 +20,7 @@ if(isset($_GET['delete'])){
   $id = $_GET['delete'];
   $delete = "DELETE FROM blog WHERE blogId = $id";
   mysqli_query($connectSQL, $delete);
-  header("location: /ecommerce/blog/blog.php");
+  header("location: $root_path/blog/blog.php");
 }
 
 if(isset($_SESSION['id'])){
@@ -39,17 +40,17 @@ if(isset($_GET['add'])){
     if(empty($errorcomment)){
       $insertc = "INSERT INTO `comment_blog` VALUES (NULL ,'$comment',$ccId,$add)";
       $ic = mysqli_query($connectSQL ,$insertc);
-      header("location: /ecommerce/blog/blog.php");
+      header("location: $root_path/blog/blog.php");
     }
      }}else{
-      header("location: /ecommerce/user/login.php");
+      header("location: $root_path/user/login.php");
     }
   }
   if(isset($_GET['deleteC'])){
     $idC = $_GET['deleteC'];
     $deleteC = "DELETE FROM comment_blog WHERE id_comment = $idC";
     mysqli_query($connectSQL, $deleteC);
-    header("location: /ecommerce/blog/blog.php");
+    header("location: $root_path/blog/blog.php");
   }
  ?>
 <section id="blog">
@@ -94,7 +95,7 @@ if(isset($_GET['add'])){
                             <h4 class="text-center"><?php echo $data['message'] ;?></h4>
                             <?php if(isset($data['customerId']) == isset($ccId) ): ?>
                             <?php if($data['customerId'] == $ccId ): ?>
-                            <a href="/eCommerce/blog/blog.php?delete=<?php echo $data['blogId']; ?> " class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            <a href="<?php echo $root_path ?>/blog/blog.php?delete=<?php echo $data['blogId']; ?> " class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                             <?php endif; ?>
                             <?php endif; ?>
                             <span><?php echo $data['time_blog']; ?></span>
@@ -113,14 +114,14 @@ if(isset($_GET['add'])){
                     </div>
                     <?php if( isset($datac['customer_Id']) == isset($ccId) ): ?>
                     <?php if( $datac['customer_Id'] == $ccId ): ?>
-                            <a href="/eCommerce/blog/blog.php?deleteC=<?php echo $datac['id_comment']; ?> " class="btn btn-outline-danger ml-3"><i class="far fa-minus-square"></i></a>
+                            <a href="<?php echo $root_path ?>/blog/blog.php?deleteC=<?php echo $datac['id_comment']; ?> " class="btn btn-outline-danger ml-3"><i class="far fa-minus-square"></i></a>
                             <?php endif; ?>
                             <?php endif; ?>
                   </div>
                   <?php endif; ?>
                   <?php } ?>
                 </div>
-                            <a href="/eCommerce/blog/blog.php?add=<?php echo $data['blogId']; ?> " class="btn text-info" ><i class="far fa-comment-dots"></i> comment....</a>
+                            <a href="<?php echo $root_path ?>/blog/blog.php?add=<?php echo $data['blogId']; ?> " class="btn text-info" ><i class="far fa-comment-dots"></i> comment....</a>
                         </div>
                         <?php  if(isset($_GET['add'])  && $data['blogId'] == $add ): ?>
                         <?php  if($_GET['add']  && $data['blogId'] == $add ): ?>

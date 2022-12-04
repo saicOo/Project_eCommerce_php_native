@@ -1,5 +1,6 @@
 
-<?php 
+<?php
+include_once  "../init.php";
 include "../genral/config.php";
 include "../genral/functions.php";
 include "../shared/header.php"; 
@@ -64,7 +65,7 @@ include "../shared/header.php";
 <?php else: ?>
   <div class="col-md-6 mx-auto text-center">
 
-    <a href="/eCommerce/index.php" class="btn btn-warning">Shopping</a>
+    <a href="<?php echo $root_path ?>/index.php" class="btn btn-warning">Shopping</a>
   </div>
 <?php endif; ?>
 

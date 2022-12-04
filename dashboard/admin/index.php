@@ -1,4 +1,5 @@
 <?php
+include_once  "../../init.php";
 include "../../genral/config.php";
 
 
@@ -11,7 +12,7 @@ include "../../genral/config.php";
     $id = $_GET['delete'];
     $delete = "DELETE FROM admins WHERE id = $id";
     mysqli_query($connectSQL, $delete);
-    header("location: /ecommerce/dashboard/admin/index.php");
+    header("location: $root_path/dashboard/admin/index.php");
   }
 
   include "../../genral/functions.php";
@@ -38,10 +39,10 @@ include "../../genral/config.php";
       <th scope="row"><?php echo $data['id']; ?></th>
       <td><?php echo $data['name'] ;?></td>
       <td>
-        <a href="/ecommerce/dashboard/admin/add.php?edit=<?php echo $data['id']; ?>" class="btn btn-info">Edit</a>
+        <a href="<?php echo $root_path ?>/dashboard/admin/add.php?edit=<?php echo $data['id']; ?>" class="btn btn-info">Edit</a>
     </td>
       <td>
-        <a href="/ecommerce/dashboard/admin/index.php?delete=<?php echo $data['id']; ?> " class="btn btn-danger">remove</a>
+        <a href="<?php echo $root_path ?>/dashboard/admin/index.php?delete=<?php echo $data['id']; ?> " class="btn btn-danger">remove</a>
     </td>
     </tr>
     <?php } ?>

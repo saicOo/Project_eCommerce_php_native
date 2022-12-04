@@ -1,4 +1,5 @@
-<?php 
+<?php
+include_once  "../init.php";
 include "../genral/config.php";
 include "../genral/functions.php";
 
@@ -13,7 +14,7 @@ if(isset($_POST['login'])){
        $_SESSION['customer'] = $email;
        $_SESSION['customerName'] = $row['name'];
        $_SESSION['id'] = $row['id'];
-       header("location: /eCommerce/index.php");
+       header("location: $root_path/index.php");
       }else{
         
           $errorEmail[]="Email or password error!";
@@ -57,7 +58,7 @@ include "../shared/header.php";
           </div>
         </div>
         <div class="col-md-6 p-md-0 image-login d-md-block d-none">
-          <img src="/eCommerce/image/login-image.jpg" alt="">
+          <img src="<?php echo $root_path ?>/image/login-image.jpg" alt="">
         </div>
     </div>
 </section>

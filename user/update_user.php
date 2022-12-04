@@ -54,7 +54,7 @@
     <?php else: ?>
     <button name='update' class="btn btn-info">update</button>
     <?php endif; ?>
-    <a class="btn btn-secondary" href="/ecommerce/user/user_profile.php">Close</a>
+    <a class="btn btn-secondary" href="<?php echo $root_path ?>/user/user_profile.php">Close</a>
   </div>
 </form>
       </div>
